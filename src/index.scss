@@ -9,3 +9,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+* {
+  box-sizing: border-box; //讓物件不會偏離定義的數值
+}
