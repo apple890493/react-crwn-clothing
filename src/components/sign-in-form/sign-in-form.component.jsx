@@ -50,9 +50,10 @@ const SignInForm = () => {
       switch (error.code) {
         case 'auth/user-not-found':
           alert('user-not-found');
+          break;
         case 'auth/wrong-password':
           alert('wrong-password')
-
+          break;
         default:
           console.log('error issue:', error.code)
           alert('oops! something wrong!')
@@ -88,7 +89,7 @@ const SignInForm = () => {
 
         <div className="buttons-container">
           <Button type="submit" buttonTitle="SIGN IN" />
-          <Button onClick={signInWithGoogle} buttonTitle="Google" buttonType="google" />
+          <Button type="button" onClick={signInWithGoogle} buttonTitle="Google" buttonType="google" />
 
           {/* sample for signInWithGoogleRedirect 
           <button onClick={signInWithGoogleRedirect}>Sign in with google redirect</button> 
