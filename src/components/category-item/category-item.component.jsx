@@ -1,4 +1,4 @@
-import './category-item.style.scss';
+import './category-item.styles.scss';
 
 function CategoryItem({ category }) {
 

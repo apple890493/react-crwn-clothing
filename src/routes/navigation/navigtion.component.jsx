@@ -1,4 +1,4 @@
-import './navigation.style.scss'
+import './navigation.styles.scss'
 import { Outlet, Link } from "react-router-dom";
 import { Fragment } from "react"; //likes ng-container to help unnecessary dom build. tips: <></> Short Syntax
 import { ReactComponent as CrwnLogo } from "../../assets/crown.svg";
