@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { signInWithGooglePopup, createUserDocumentFromAuth, signInWithGoogleRedirect, auth, signInAuthUserWithEmailAndPassword } from "../../utils/firebase/firebase.utils";
+import { UserContext } from "../../contexts/user.context";
 
 /* sample for signInWithGoogleRedirect
 import { useEffect } from "react";
@@ -19,9 +20,12 @@ const SignInForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
 
+  // const { setCurrentUser } = useContext(UserContext);
+
   const signInWithGoogle = async () => {
     const { user } = await signInWithGooglePopup();
-    await createUserDocumentFromAuth(user);
+    // setCurrentUser(resp); //bcuz user.context.jsx this file is handle it thus we dont need.
+    // createUserDocumentFromAuth(user);//move on to user.context 
   };
   /* sample for signInWithGoogleRedirect
   useEffect(() => {
@@ -44,8 +48,8 @@ const SignInForm = () => {
 
     try {
       const resp = await signInAuthUserWithEmailAndPassword(email, password);
-      console.log(resp);
       resetForms();
+      // setCurrentUser(resp); //bcuz user.context.jsx this file is handle it thus we dont need.
     } catch (error) {
       switch (error.code) {
         case 'auth/user-not-found':
@@ -89,7 +93,7 @@ const SignInForm = () => {
 
         <div className="buttons-container">
           <Button type="submit" buttonTitle="SIGN IN" />
-          <Button type="button" onClick={signInWithGoogle} buttonTitle="Google" buttonType="google" />
+          <Button type="button" onClick={signInWithGoogle} buttonTitle="SIGN IN WITH GOOGLE" buttonType="google" />
 
           {/* sample for signInWithGoogleRedirect 
           <button onClick={signInWithGoogleRedirect}>Sign in with google redirect</button> 

@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from "../../utils/firebase/firebase.utils";
+import { UserContext } from "../../contexts/user.context";
 
 import FormInput from '../form-input/form-input.component';
 import Button from "../button/button.component";
@@ -15,7 +16,7 @@ const defaultFormFields = {
 function SignUpForm() {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
-
+  // const { setCurrentUser } = useContext(UserContext);
   const resetForms = () => {
     setFormFields(defaultFormFields);
   };
@@ -38,6 +39,9 @@ function SignUpForm() {
     //外部資料取得會有失敗的可能性，所以使用try catch
     try {
       const { user } = await createAuthUserWithEmailAndPassword(email, password);
+
+      // setCurrentUser(user);
+
       //displayName is null on user object, so can not directly use it.
       const userDocRef = await createUserDocumentFromAuth(user, { displayName });
       resetForms();
