@@ -18,6 +18,8 @@
     opacity: 0.7;
     position: absolute;
     top: 255px;
+    left: 50%;
+    transform: translateX(-50%);
     display: none;
   }
 

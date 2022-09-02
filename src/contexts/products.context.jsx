@@ -9,6 +9,7 @@ export const ProductsProvider = ({ children }) => {
   const [products, setProducts] = useState(PRODUCTS);
   const value = { products }; //Provider 使用的值
 
-  return <ProductsContext.Provider value={value}>{children} d</ProductsContext.Provider>
+  return <ProductsContext.Provider value={value}>{children}</ProductsContext.Provider>
 }; //擁有訪問ProductsContext的範圍
+
 
