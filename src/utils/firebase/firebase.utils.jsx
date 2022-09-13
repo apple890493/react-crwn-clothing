@@ -114,33 +114,33 @@ export const getCategoriesAndDocuments = async () => {
   const q = query(collectionRef);
 
   const querySnapshot = await getDocs(q);
-  const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
-    const { title, items } = docSnapshot.data();
-    acc[title.toLowerCase()] = items;
-    return acc;
+  return querySnapshot.docs.map((doc) => doc.data());
+  // const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
+  //   const { title, items } = docSnapshot.data();
+  //   acc[title.toLowerCase()] = items;
+  //   return acc;
 
-    /*
-      created the object like the blower:
-      {
-        hats: {
-          title: 'Hats',
-          items: [
-            {},
-            {}
-          ]
-        },
-        shoes: {
-          title: 'Shoes',
-          items: [
-            {},
-            {}
-          ]
-        }
-        ...etc
-      }
-    
-    */
-  }, {});
+  //   /*
+  //     created the object like the blower:
+  //     {
+  //       hats: {
+  //         title: 'Hats',
+  //         items: [
+  //           {},
+  //           {}
+  //         ]
+  //       },
+  //       shoes: {
+  //         title: 'Shoes',
+  //         items: [
+  //           {},
+  //           {}
+  //         ]
+  //       }
+  //       ...etc
+  //     }
 
-  return categoryMap;
+  //   */
+  // }, {});
+  // return categoryMap;
 };
