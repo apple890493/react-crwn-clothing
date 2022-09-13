@@ -1,6 +1,11 @@
 import './navigation.styles.scss'
 import { Outlet, Link } from "react-router-dom";
 import { Fragment, useContext } from "react"; //likes ng-container to help unnecessary dom build. tips: <></> Short Syntax
+
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from "../../store/user/user.selector";
+import { selectCartIsOpen } from "../../store/cart/cart.selector";
+
 import { ReactComponent as CrwnLogo } from "../../assets/crown.svg";
 
 import { UserContext } from "../../contexts/user.context";
@@ -11,8 +16,10 @@ import CartIcon from "../../components/cart-icon/cart-icon.component";
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component";
 
 function Navigation() {
-  const { currentUser, setCurrentUser } = useContext(UserContext);
-  const { isCartOpen } = useContext(CartContext);
+  // const { currentUser, setCurrentUser } = useContext(UserContext);
+  const currentUser = useSelector(selectCurrentUser);
+  // const { isCartOpen } = useContext(CartContext);
+  const isCartOpen = useSelector(selectCartIsOpen);
   // console.log(currentUser);
 
   // const signOutHandler = async () => {
